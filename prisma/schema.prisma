@@ -1,0 +1,22 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model SignalObservation {
+  id         String   @id @default(cuid())
+  signalKey  String
+  entity     String
+  periodEnd  DateTime?
+  value      Float?
+  unit       String?
+  yoy        Float?
+  qoq        Float?
+  score      Float?
+  sourceUrl  String?
+  sourceNote String?
+  observedAt DateTime @default(now())
+}
